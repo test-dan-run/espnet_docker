@@ -40,7 +40,6 @@ cd /workspace/espnet/egs2/mini_an4/asr1
     --asr_stats_dir "/mount/exp/transformer/asr_stats" \
     --asr_config "/mount/tuning/train_asr_transformer.yaml" \
     --inference_config "/mount/tuning/decode_transformer.yaml"
-    # --use_lm false \
 ```
 We will be using the `mini_an4` dataset, which is a small dataset, as a test. It worked for my machine, so I god hope it works for yours.
 In the first line, we cd into the mini_an4/asr1 project, and run the ./asr.sh script from there. 
@@ -51,6 +50,7 @@ Now assuming you wanna play around with different model architectures, you will 
 
 There are a bunch of other params that I haven't explored yet, like where to access your own data etc., so I will have to trouble you to explore this on your own. You can find the other `./asr.sh` parameters in the file [here](https://github.com/espnet/espnet/blob/master/egs2/TEMPLATE/asr1/asr.sh).
 
+*NOTE:* Please remember to add '\' for each parameter you add, otherwise you will be running ./asr.sh with a few parameters missing.
 
 ### Running the docker-compose
 Once all your prep work is done, hop over to the `docker-compose.yaml` file. 
