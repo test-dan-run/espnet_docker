@@ -63,5 +63,8 @@ Once all your prep work is done, hop over to the `docker-compose.yaml` file.
 docker-compose up
 ```
 
+3. To view the tensorboard, just go to [localhost:6006](localhost:6006) on your browser.
 
+## That's It
+Ye, that's it. If nothing works, let me know on telegram~
 
