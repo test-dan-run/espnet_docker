@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  espnet:
+    stdin_open: true
+    tty: true
+    image: dleongsh/espnet:202205-torch1.10-cu113-runtime
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    volumes:
+      - /mnt/c/projects/espnet_docker/mount:/mount
+      - /mnt/c/datasets:/datasets
+    ulimits:
+      memlock: -1
+      stack: 67108864
+    shm_size: 16gb
+    command: bash -c "cd /mount && ./run.sh"
+  tensorboard:
+    image: dleongsh/tensorboard:latest
+    ports:
+      - 6006:6006
+    volumes:
+      - /mnt/c/projects/espnet_docker/mount:/mount
+    command: tensorboard --logdir /mount --host 0.0.0.0 --port 6006
